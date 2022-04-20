@@ -2,7 +2,7 @@ import { useState } from "react";
 import RadioButton from "../RadioButton";
 import "./index.css";
 
-function RadioButtonGroup() {
+function RadioButtonGroup(): JSX.Element {
   const data = {
     menus: [
       // first group of radio-buttons
@@ -54,10 +54,10 @@ function RadioButtonGroup() {
               {menu.map((options, index) => (
                 <RadioButton
                   key={`key${index + 1}`}
-                  onChange={(value, group) => {
+                  onChange={(value: string, radioGroupId: string) => {
                     setSelectedOptions({
                       ...selectedOptions,
-                      [group]: value,
+                      [radioGroupId]: value,
                     });
                   }}
                   groupId={groupId}

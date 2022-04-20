@@ -1,16 +1,31 @@
+type Menu = {
+  id: string;
+  value: string;
+};
+
+interface RadioButtonProps {
+  groupId: string;
+  menu: Menu;
+  onChange: (value: string, radioGroupId: string) => void;
+  rules: any;
+  selectedOptions: object;
+}
+
 function RadioButton({
   groupId,
   menu: { id, value },
   onChange,
   rules,
   selectedOptions,
-}) {
+}: RadioButtonProps): JSX.Element {
   let disabled = false;
 
   if (Object.keys(selectedOptions).length > 0) {
-    Object.entries(selectedOptions).forEach(([key, value]) => {
-      if (Object.keys(rules).includes(value)) {
-        disabled = rules[value].includes(parseInt(id));
+    Object.entries(selectedOptions).find(([key, optionValue]) => {
+      console.log(key, optionValue);
+      if (Object.keys(rules).includes(optionValue)) {
+        disabled = rules[optionValue].includes(parseInt(id));
+        return disabled;
       }
     });
   }

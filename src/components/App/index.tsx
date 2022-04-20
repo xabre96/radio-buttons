@@ -1,11 +1,7 @@
 import RadioButtonGroup from "../RadioButtonGroup";
 
-function App() {
-  return (
-    <>
-      <RadioButtonGroup />
-    </>
-  );
+function App(): JSX.Element {
+  return <RadioButtonGroup />;
 }
 
 export default App;
